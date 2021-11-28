@@ -24,8 +24,9 @@ const getAllBikes = async (req, res) => {
 const getSingleBike = async (req, res) => {
   const { id } = req.params
   console.log(id)
-  const bike = await Bike.findOne({ _id: id })
-  console.log(bike)
+  const bike = await Bike.findOne({ _id: id }).lean()
+  bike.stars = parseFloat(bike.stars)
+
   if (!bike) {
     throw new NotFoundError('item not found')
   }
