@@ -15,6 +15,8 @@ const getAllBikes = async (req, res) => {
       mountain: 1,
       hardtail: 1,
       featured: 1,
+      size: 1,
+      shipping: 1,
     }
   )
 
