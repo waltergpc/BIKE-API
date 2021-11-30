@@ -27,11 +27,11 @@ const getSingleBike = async (req, res) => {
   const { id } = req.params
   console.log(id)
   const bike = await Bike.findOne({ _id: id }).lean()
-  bike.stars = parseFloat(bike.stars)
-
+  console.log(bike)
   if (!bike) {
     throw new NotFoundError('item not found')
   }
+  bike.stars = parseFloat(bike.stars)
 
   res.status(200).json(bike)
 }
